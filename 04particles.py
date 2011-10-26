@@ -115,7 +115,7 @@ class GLWidget(QGLWidget):
         dy = dxy.y() / self.height()
         if event.buttons() & Qt.LeftButton:
             self.camera.rotate(dx, dy)
-        elif event.buttons() & Qt.MidButton:
+        elif (event.buttons() & Qt.MidButton) or (event.modifiers() & Qt.ControlModifier):
             self.camera.pan(dx, dy)
         elif event.buttons() & Qt.RightButton:
             self.camera.zoom(dx, dy)
